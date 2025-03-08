@@ -42,43 +42,46 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-slate-50 to-blue-50 p-4">
-      <div className="w-full text-center py-8 mb-4">
-        <h1 className="text-3xl font-bold text-slate-800">Background Verification</h1>
+      <div className="w-full text-center py-6">
+        <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent drop-shadow-sm">
+          Background Verification
+        </h1>
       </div>
       
-      <div className="flex-grow flex flex-col items-center justify-center">
-        <div className="max-w-md w-full mx-auto">
-          <div className="text-center mb-6">
-            <div className="inline-flex items-center justify-center bg-primary/10 p-3 rounded-full mb-4">
-              <Shield className="w-8 h-8 text-primary" />
+      <div className="flex-grow flex flex-col items-center justify-center -mt-10">
+        <div className="max-w-2xl w-full mx-auto">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center bg-primary/10 p-5 rounded-full mb-5">
+              <Shield className="w-12 h-12 text-primary" />
             </div>
-            <p className="text-slate-500 mt-2">Enter your query below to verify background information.</p>
+            <p className="text-slate-500 mt-2 text-lg">Enter your query below to verify background information.</p>
           </div>
           
-          <div className="verification-container p-6">
+          <div className="verification-container p-8 shadow-xl">
             <VerificationForm 
               onSubmit={handleSubmit} 
               isLoading={isLoading} 
             />
             
             {isLoading && (
-              <div className="flex flex-col items-center justify-center py-10">
+              <div className="flex flex-col items-center justify-center py-12">
                 <LoadingSpinner size="lg" />
-                <p className="mt-4 text-slate-500 animate-pulse">Processing your request...</p>
+                <p className="mt-6 text-slate-500 animate-pulse text-lg">Processing your request...</p>
               </div>
             )}
             
             <ResultDisplay 
               isLoading={isLoading} 
               result={result} 
+              className="max-h-80 overflow-y-auto"
             />
             
             {!isLoading && !result && (
-              <div className="flex flex-col items-center justify-center py-8 text-center">
-                <div className="bg-slate-100/80 rounded-full p-3 mb-3">
-                  <CheckCircle className="w-6 h-6 text-slate-400" />
+              <div className="flex flex-col items-center justify-center py-10 text-center">
+                <div className="bg-slate-100/80 rounded-full p-4 mb-4">
+                  <CheckCircle className="w-8 h-8 text-slate-400" />
                 </div>
-                <p className="text-slate-500">Enter a verification query and click verify to get started.</p>
+                <p className="text-slate-500 text-lg">Enter a verification query and click verify to get started.</p>
               </div>
             )}
           </div>

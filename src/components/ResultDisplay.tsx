@@ -48,19 +48,19 @@ const ResultDisplay = ({ isLoading, result, className }: ResultDisplayProps) => 
 
   return (
     <div className={cn(
-      "animate-slide-up rounded-xl p-4 mt-6 border",
+      "animate-slide-up rounded-xl p-6 mt-8 border max-h-96 overflow-y-auto scrollbar-thin",
       config.bgColor,
       config.borderColor,
       className
     )}>
-      <div className="flex items-start gap-3">
+      <div className="flex items-start gap-4">
         <div className={cn("shrink-0 mt-0.5", config.color)}>
-          <IconComponent size={20} />
+          <IconComponent size={24} />
         </div>
-        <div className="space-y-1">
-          <p className="font-medium text-slate-800">{result.message}</p>
+        <div className="space-y-2">
+          <p className="font-medium text-slate-800 text-lg">{result.message}</p>
           {result.details && (
-            <p className="text-sm text-slate-600">{result.details}</p>
+            <p className="text-base text-slate-600">{result.details}</p>
           )}
         </div>
       </div>

@@ -19,15 +19,15 @@ const VerificationForm = ({ onSubmit, isLoading }: VerificationFormProps) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="verification-form space-y-4">
+    <form onSubmit={handleSubmit} className="verification-form space-y-6">
       <div className="relative">
-        <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400">
-          <Search size={20} />
+        <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400">
+          <Search size={24} />
         </div>
         <input
           type="text"
           placeholder="Enter background verification query..."
-          className="verification-input pl-10 h-16 text-base"
+          className="verification-input pl-12 h-20 text-lg rounded-xl w-full"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           disabled={isLoading}
@@ -36,7 +36,7 @@ const VerificationForm = ({ onSubmit, isLoading }: VerificationFormProps) => {
       
       <button 
         type="submit" 
-        className="verification-button w-full flex items-center justify-center"
+        className="verification-button w-full flex items-center justify-center h-16 text-lg"
         disabled={isLoading || !query.trim()}
       >
         {isLoading ? (
