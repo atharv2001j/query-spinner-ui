@@ -41,47 +41,52 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-slate-50 to-blue-50 p-4">
-      <div className="max-w-md w-full mx-auto">
-        <div className="text-center mb-6">
-          <div className="inline-flex items-center justify-center bg-primary/10 p-3 rounded-full mb-4">
-            <Shield className="w-8 h-8 text-primary" />
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-slate-50 to-blue-50 p-4">
+      <div className="w-full text-center py-8 mb-4">
+        <h1 className="text-3xl font-bold text-slate-800">Background Verification</h1>
+      </div>
+      
+      <div className="flex-grow flex flex-col items-center justify-center">
+        <div className="max-w-md w-full mx-auto">
+          <div className="text-center mb-6">
+            <div className="inline-flex items-center justify-center bg-primary/10 p-3 rounded-full mb-4">
+              <Shield className="w-8 h-8 text-primary" />
+            </div>
+            <p className="text-slate-500 mt-2">Enter your query below to verify background information.</p>
           </div>
-          <h1 className="text-2xl font-semibold text-slate-800">Background Verification</h1>
-          <p className="text-slate-500 mt-2">Enter your query below to verify background information.</p>
-        </div>
-        
-        <div className="verification-container p-6">
-          <VerificationForm 
-            onSubmit={handleSubmit} 
-            isLoading={isLoading} 
-          />
           
-          {isLoading && (
-            <div className="flex flex-col items-center justify-center py-10">
-              <LoadingSpinner size="lg" />
-              <p className="mt-4 text-slate-500 animate-pulse">Processing your request...</p>
-            </div>
-          )}
-          
-          <ResultDisplay 
-            isLoading={isLoading} 
-            result={result} 
-          />
-          
-          {!isLoading && !result && (
-            <div className="flex flex-col items-center justify-center py-8 text-center">
-              <div className="bg-slate-100/80 rounded-full p-3 mb-3">
-                <CheckCircle className="w-6 h-6 text-slate-400" />
+          <div className="verification-container p-6">
+            <VerificationForm 
+              onSubmit={handleSubmit} 
+              isLoading={isLoading} 
+            />
+            
+            {isLoading && (
+              <div className="flex flex-col items-center justify-center py-10">
+                <LoadingSpinner size="lg" />
+                <p className="mt-4 text-slate-500 animate-pulse">Processing your request...</p>
               </div>
-              <p className="text-slate-500">Enter a verification query and click verify to get started.</p>
-            </div>
-          )}
+            )}
+            
+            <ResultDisplay 
+              isLoading={isLoading} 
+              result={result} 
+            />
+            
+            {!isLoading && !result && (
+              <div className="flex flex-col items-center justify-center py-8 text-center">
+                <div className="bg-slate-100/80 rounded-full p-3 mb-3">
+                  <CheckCircle className="w-6 h-6 text-slate-400" />
+                </div>
+                <p className="text-slate-500">Enter a verification query and click verify to get started.</p>
+              </div>
+            )}
+          </div>
+          
+          <p className="text-xs text-center mt-4 text-slate-400">
+            Secure verification system • All data is encrypted and protected
+          </p>
         </div>
-        
-        <p className="text-xs text-center mt-4 text-slate-400">
-          Secure verification system • All data is encrypted and protected
-        </p>
       </div>
     </div>
   );

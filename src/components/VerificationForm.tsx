@@ -27,7 +27,7 @@ const VerificationForm = ({ onSubmit, isLoading }: VerificationFormProps) => {
         <input
           type="text"
           placeholder="Enter background verification query..."
-          className="verification-input pl-10"
+          className="verification-input pl-10 h-16 text-base"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           disabled={isLoading}
